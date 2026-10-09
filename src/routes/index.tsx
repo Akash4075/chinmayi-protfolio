@@ -26,8 +26,8 @@ function HomePage() {
   return (
     <div className="circuit-bg">
       {/* Hero */}
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-[1fr_auto] md:py-32">
-        <div className="flex flex-col items-start gap-8">
+      <section className="mx-auto flex max-w-6xl flex-col-reverse items-center gap-12 px-6 py-16 text-center md:grid md:grid-cols-[1fr_auto] md:text-left md:py-32">
+        <div className="flex flex-col items-center gap-8 md:items-start">
         <div className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 font-mono text-xs tracking-widest text-primary">
           <span className="h-2 w-2 rounded-full bg-primary animate-pulse-dot" />
           AVAILABLE FOR OPPORTUNITIES
@@ -43,7 +43,7 @@ function HomePage() {
           embedded systems, IoT, and software development — from sensor-driven automation
           to Java, C++, and web technologies.
         </p>
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-wrap justify-center items-center gap-4 md:justify-start">
           <Link
             to="/projects"
             className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-105"
@@ -57,7 +57,7 @@ function HomePage() {
             Get in Touch
           </Link>
         </div>
-        <div className="flex items-center gap-5 pt-2 text-muted-foreground">
+        <div className="flex flex-wrap justify-center items-center gap-5 pt-2 text-muted-foreground md:justify-start">
           <a href="https://github.com/CHINMAYI2005" target="_blank" rel="noreferrer" aria-label="GitHub" className="transition-colors hover:text-primary"><Github className="h-5 w-5" /></a>
           <a href="https://linkedin.com/in/chinmayi-m-a6908335a" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="transition-colors hover:text-primary"><Linkedin className="h-5 w-5" /></a>
           <a href="mailto:chinmayic477@gmail.com" aria-label="Email" className="transition-colors hover:text-primary"><Mail className="h-5 w-5" /></a>

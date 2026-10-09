@@ -87,7 +87,7 @@ const navLinks = [
 function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-4 md:flex-row">
         <Link to="/" className="flex items-center gap-2 font-mono text-sm font-semibold tracking-widest text-primary">
           <CircuitBoard className="h-5 w-5" />
           CHINMAYI_M
@@ -105,14 +105,14 @@ function Header() {
             </Link>
           ))}
         </nav>
-        <nav className="flex items-center gap-4 md:hidden">
+        <nav className="flex w-full items-center justify-center gap-4 overflow-x-auto pb-1 md:hidden scrollbar-none" style={{ scrollbarWidth: 'none' }}>
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
               activeOptions={{ exact: link.to === "/" }}
-              className="text-xs text-muted-foreground transition-colors hover:text-primary"
-              activeProps={{ className: "text-primary" }}
+              className="whitespace-nowrap text-[11px] uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
+              activeProps={{ className: "font-bold text-primary" }}
             >
               {link.label}
             </Link>
