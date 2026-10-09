@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Bot, Send, X } from "lucide-react";
+import { chatWithBotFn } from "../lib/chatFn";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -42,22 +43,12 @@ export function ChatWidget() {
     setInput("");
     setBusy(true);
     try {
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: next.slice(1) }),
-      });
-      if (!res.ok || !res.body) throw new Error(await res.text());
-      const reader = res.body.getReader();
-      const dec = new TextDecoder();
-      let acc = "";
-      for (;;) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        acc += dec.decode(value, { stream: true });
-        setMsgs([...next, { role: "assistant", content: acc }]);
+      const resText = await chatWithBotFn({ data: { messages: next.slice(1) } });
+      if (!resText) {
+        setMsgs([...next, { role: "assistant", content: "Sorry, I couldn't answer that." }]);
+      } else {
+        setMsgs([...next, { role: "assistant", content: resText }]);
       }
-      if (!acc) setMsgs([...next, { role: "assistant", content: "Sorry, I couldn't answer that." }]);
     } catch (e) {
       setMsgs([...next, { role: "assistant", content: (e as Error).message || "Something went wrong." }]);
     } finally {
