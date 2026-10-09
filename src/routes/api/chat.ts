@@ -11,7 +11,7 @@ Profile:
 - Achievements: 1st Prize at SIH (Smart India Hackathon) Internal Hackathon; ₹5 Lakh government funding from NAIN for Silkworm Farm Automation; 2nd Prize PES College inter-college hackathon; 2nd Prize MECHNOVATE project exhibition; 4th place IGNITEX 2025 national hackathon; shortlisted at Startup Sparks (Vivartan Incubation Centre); Student Chair of IEEE Circuits & Systems Society chapter.
 - Open to internships and job opportunities.`;
 
-export const APIRoute = createAPIFileRoute("/api/chat")({
+export const Route = createAPIFileRoute("/api/chat")({
   POST: async ({ request }) => {
     const body = (await request.json()) as { messages?: { role: string; content: string }[] };
         const messages = body.messages ?? [];
