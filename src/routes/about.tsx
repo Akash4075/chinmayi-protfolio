@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { GraduationCap, Award, Users } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { GraduationCap, Award, Users, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -89,6 +89,15 @@ function AboutPage() {
             ))}
           </div>
         </div>
+      </div>
+
+      <div className="mt-16 flex justify-center border-t border-border/60 pt-10">
+        <Link
+          to="/skills"
+          className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:scale-105 hover:shadow-primary/40"
+        >
+          Explore More <ArrowRight className="h-4 w-4" />
+        </Link>
       </div>
     </div>
   );

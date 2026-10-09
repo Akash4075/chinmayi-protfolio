@@ -93,9 +93,17 @@ function HomePage() {
               <span key={s} className="chip">{s}</span>
             ))}
           </div>
-          <Link to="/skills" className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
-            Full skill matrix <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="mt-10 flex flex-col items-center justify-between gap-6 border-t border-border/60 pt-8 sm:flex-row">
+            <Link to="/skills" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+              Full skill matrix <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:scale-105 hover:shadow-primary/40"
+            >
+              Explore Next <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
     </div>

@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Github, Linkedin } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Mail, MapPin, Github, Linkedin, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -70,6 +70,15 @@ function ContactPage() {
         <div className="mt-10 flex items-center gap-3 rounded-xl border border-border bg-card p-6 text-muted-foreground">
           <MapPin className="h-5 w-5 shrink-0 text-copper" />
           <span>Bellur Cross, Mandya, Karnataka, India</span>
+        </div>
+
+        <div className="mt-16 flex justify-center border-t border-border/60 pt-10">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-8 py-3.5 text-sm font-semibold text-foreground transition-all hover:border-primary hover:text-primary hover:scale-105"
+          >
+            Back to Home <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </div>
