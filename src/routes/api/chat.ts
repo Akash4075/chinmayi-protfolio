@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createAPIFileRoute } from "@tanstack/react-start/api";
 
 const PROFILE = `You are the friendly portfolio assistant for Chinmayi M. Answer questions about her briefly (2-4 sentences), speaking about Chinmayi in third person. If something isn't covered below, say you don't know and suggest contacting her.
 
@@ -11,11 +11,9 @@ Profile:
 - Achievements: 1st Prize at SIH (Smart India Hackathon) Internal Hackathon; ₹5 Lakh government funding from NAIN for Silkworm Farm Automation; 2nd Prize PES College inter-college hackathon; 2nd Prize MECHNOVATE project exhibition; 4th place IGNITEX 2025 national hackathon; shortlisted at Startup Sparks (Vivartan Incubation Centre); Student Chair of IEEE Circuits & Systems Society chapter.
 - Open to internships and job opportunities.`;
 
-export const Route = createFileRoute("/api/chat")({
-  server: {
-    handlers: {
-      POST: async ({ request }) => {
-        const body = (await request.json()) as { messages?: { role: string; content: string }[] };
+export const APIRoute = createAPIFileRoute("/api/chat")({
+  POST: async ({ request }) => {
+    const body = (await request.json()) as { messages?: { role: string; content: string }[] };
         const messages = body.messages ?? [];
         const lastUserMsg = messages.filter(m => m.role === "user").pop()?.content.toLowerCase() || "";
 
@@ -72,7 +70,5 @@ export const Route = createFileRoute("/api/chat")({
         }
 
         return new Response(responseText, { status: 200, headers: { "Content-Type": "text/plain; charset=utf-8" } });
-      },
-    },
   },
 });
